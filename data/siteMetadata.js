@@ -7,17 +7,17 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://learningmathstogether.co.uk',
-  siteLogo: '/static/images/logo.png',
-  // socialBanner: '/static/images/twitter-card.png',
-  // mastodon: 'https://mastodon.social/@mastodonuser',
+  siteLogo: '/static/images/logo.jpg',
+  socialBanner: '/static/images/twitter-card.png',
+  mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'oksana.kiseleva@talktalk.net',
-  /* x: 'https://twitter.com/x',
+  // x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com', */
+  // facebook: 'https://facebook.com',
+  // youtube: 'https://youtube.com',
+  // linkedin: 'https://www.linkedin.com',
+  // threads: 'https://www.threads.net',
+  // instagram: 'https://www.instagram.com',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
@@ -44,7 +44,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    //provider: 'buttondown',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the

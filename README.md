@@ -303,3 +303,9 @@ Using the template? Support this effort by giving a star on GitHub, sharing your
 ## Licence
 
 [MIT](https://github.com/timlrx/tailwind-nextjs-starter-blog/blob/main/LICENSE) © [Timothy Lin](https://www.timlrx.com)
+
+## Attributions
+
+SVG Logo:
+
+Vectors and icons by <a href="https://dribbble.com/pancaokta?ref=svgrepo.com" target="_blank">Pancaokta</a> in CC Attribution License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>

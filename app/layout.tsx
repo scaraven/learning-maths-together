@@ -1,3 +1,4 @@
+'use client'
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
@@ -11,6 +12,8 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import { useState, useCallback } from 'react'
+import LoadingOverlay from 'react-loading-overlay-ts'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -18,7 +21,7 @@ const space_grotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     default: siteMetadata.title,
@@ -58,7 +61,11 @@ export const metadata: Metadata = {
   },
 }
 
+// export metadata
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [isActive, setActive] = useState(false)
+
   return (
     <html
       lang={siteMetadata.language}
@@ -75,18 +82,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
-        <ThemeProviders>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <SectionContainer>
-            <div className="flex h-screen flex-col justify-between font-sans">
-              <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-                <Header />
-                <main className="mb-auto">{children}</main>
-              </SearchProvider>
-              <Footer />
-            </div>
-          </SectionContainer>
-        </ThemeProviders>
+        <LoadingOverlay spinner active={isActive}>
+          <ThemeProviders>
+            <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+            <SectionContainer>
+              <div className="flex h-screen flex-col justify-between font-sans">
+                <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
+                  <Header />
+                  <main className="mb-auto">{children}</main>
+                </SearchProvider>
+                <Footer />
+              </div>
+            </SectionContainer>
+          </ThemeProviders>
+        </LoadingOverlay>
       </body>
     </html>
   )
